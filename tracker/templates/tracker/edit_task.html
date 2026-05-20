@@ -1,0 +1,11 @@
+{% extends 'tracker/layout.html' %}
+{% block content %}
+<div class="card narrow">
+    <h1>Edit Task</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="button" type="submit">Update Task</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'tracker/layout.html' %}
+{% block content %}
+<div class="card narrow">
+    <h1>Delete Task</h1>
+    <p>Are you sure you want to delete “{{ task.title }}”?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button class="button danger-button" type="submit">Delete</button>
+        <a href="{% url 'tasks' %}">Cancel</a>
+    </form>
+</div>
+{% endblock %}
