@@ -1,0 +1,12 @@
+{% extends 'tracker/layout.html' %}
+{% block title %}Register | Smart Study Tracker{% endblock %}
+{% block content %}
+<div class="card narrow">
+    <h1>Create Account</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="button" type="submit">Register</button>
+    </form>
+</div>
+{% endblock %}

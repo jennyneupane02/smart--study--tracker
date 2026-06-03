@@ -1,0 +1,20 @@
+{% extends 'tracker/layout.html' %}
+{% block content %}
+<h1>Study Sessions</h1>
+<div class="two-column">
+    <section class="card">
+        <h2>Record Session</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="button" type="submit">Save Session</button>
+        </form>
+    </section>
+    <section class="card">
+        <h2>Recent Sessions</h2>
+        {% if sessions %}
+            <ul>{% for session in sessions %}<li>{{ session.date }} — {{ session.minutes }} minutes{% if session.subject %} for {{ session.subject.name }}{% endif %}</li>{% endfor %}</ul>
+        {% else %}<p>No study sessions recorded.</p>{% endif %}
+    </section>
+</div>
+{% endblock %}

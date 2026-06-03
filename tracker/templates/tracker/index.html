@@ -1,0 +1,15 @@
+{% extends 'tracker/layout.html' %}
+{% block title %}Home | Smart Study Tracker{% endblock %}
+{% block content %}
+<section class="hero">
+    <div>
+        <h1>Plan your study life with less stress.</h1>
+        <p>Smart Study Tracker helps students organize tasks, record study time, set daily goals, and follow progress from one simple dashboard.</p>
+        {% if user.is_authenticated %}
+            <a class="button" href="{% url 'dashboard' %}">Go to Dashboard</a>
+        {% else %}
+            <a class="button" href="{% url 'register' %}">Create Account</a>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

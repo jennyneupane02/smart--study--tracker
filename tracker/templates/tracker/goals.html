@@ -1,0 +1,20 @@
+{% extends 'tracker/layout.html' %}
+{% block content %}
+<h1>Daily Goals</h1>
+<div class="two-column">
+    <section class="card">
+        <h2>Set Goal</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="button" type="submit">Save Goal</button>
+        </form>
+    </section>
+    <section class="card">
+        <h2>Recent Goals</h2>
+        {% if goals %}
+            <ul>{% for goal in goals %}<li>{{ goal.date }} — {{ goal.target_minutes }} minutes, {{ goal.target_tasks }} tasks</li>{% endfor %}</ul>
+        {% else %}<p>No goals set yet.</p>{% endif %}
+    </section>
+</div>
+{% endblock %}

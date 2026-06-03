@@ -1,0 +1,20 @@
+{% extends 'tracker/layout.html' %}
+{% block content %}
+<h1>Subjects</h1>
+<div class="two-column">
+    <section class="card">
+        <h2>Add Subject</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="button" type="submit">Save Subject</button>
+        </form>
+    </section>
+    <section class="card">
+        <h2>Your Subjects</h2>
+        {% if subjects %}
+            <ul>{% for subject in subjects %}<li>{{ subject.name }} — {{ subject.color }}</li>{% endfor %}</ul>
+        {% else %}<p>No subjects yet.</p>{% endif %}
+    </section>
+</div>
+{% endblock %}

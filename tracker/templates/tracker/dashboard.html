@@ -1,0 +1,35 @@
+{% extends 'tracker/layout.html' %}
+{% block title %}Dashboard | Smart Study Tracker{% endblock %}
+{% block content %}
+<h1>Dashboard</h1>
+<div class="dashboard-grid">
+    <section class="card">
+        <h2>Task Progress</h2>
+        <p><span id="completed-count">{{ completed_count }}</span> of <span id="total-count">{{ total_count }}</span> tasks completed</p>
+        <div class="progress"><div id="progress-fill" style="width: {{ task_percent }}%"></div></div>
+        <p id="progress-label">{{ task_percent }}% complete</p>
+    </section>
+    <section class="card">
+        <h2>Today's Study Time</h2>
+        <p>{{ studied_minutes }} minutes studied today</p>
+        {% if goal %}
+            <div class="progress"><div style="width: {{ minute_percent }}%"></div></div>
+            <p>Daily goal: {{ goal.target_minutes }} minutes</p>
+        {% else %}
+            <p>No goal set for today yet.</p>
+        {% endif %}
+    </section>
+</div>
+<section class="card">
+    <h2>Next Pending Tasks</h2>
+    {% if pending_tasks %}
+        <ul class="task-list">
+            {% for task in pending_tasks %}
+                <li>{{ task.title }} — due {{ task.deadline }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You have no pending tasks.</p>
+    {% endif %}
+</section>
+{% endblock %}
