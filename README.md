@@ -160,6 +160,7 @@ http://127.0.0.1:8000/
 
 10. Register a new account, create subjects, add tasks, record study sessions, set goals, and test the dashboard.
 
+<<<<<<< HEAD
 ## Lesson 14 Enhancements
 
 For Lesson 14, I completed two enhancements: **Option D – Testing** and **Option E – CI/CD Pipeline**. I chose these because they make the project stronger and more reliable. Instead of only adding visual features, these enhancements help prove that the application works correctly and that future code changes will not silently break important behavior.
@@ -223,6 +224,8 @@ No new dependencies were added. The project still uses the existing packages lis
 - Screenshot 1: Terminal showing `python manage.py test` with all 10 tests passing.
 - Screenshot 2: GitHub Actions page showing the **Django CI** workflow passing.
 
+=======
+>>>>>>> c8c388d8bdfc879a21b310b6891e71f79993ce43
 ## Additional Information
 
 The application uses Django authentication, so users must register and log in before they can access the dashboard, tasks, subjects, sessions, or goals. The app filters all main data by the current user, which prevents one user from viewing another user's tasks or study records.
